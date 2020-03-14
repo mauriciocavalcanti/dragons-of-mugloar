@@ -1,6 +1,5 @@
 package com.bigbank.dragons.client;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,26 +16,31 @@ public class DragonsClient {
   private WebClient webClient;
 
   public Game startGame() {
-    return null;
+    return webClient.post().uri("/game/start").retrieve().bodyToMono(Game.class).block();
   }
 
   public Reputation investigateReputation(String gameId) {
-    return null;
+    return webClient.post().uri("/{gameId}/investigate/reputation", gameId).retrieve()
+        .bodyToMono(Reputation.class).block();
   }
 
   public List<Ad> getMessages(String gameId) {
-    return new ArrayList<>();
+    return webClient.get().uri("/{gameId}/messages", gameId).retrieve().bodyToFlux(Ad.class)
+        .collectList().block();
   }
 
   public Game solveMessage(String gameId, String adId) {
-    return null;
+    return webClient.post().uri("/{gameId}/solve/{adId}", gameId, adId).retrieve()
+        .bodyToMono(Game.class).block();
   }
 
   public List<Item> getShop(String gameId) {
-    return new ArrayList<>();
+    return webClient.get().uri("/{gameId}/shop", gameId).retrieve().bodyToFlux(Item.class)
+        .collectList().block();
   }
 
   public Game buyItem(String gameId, String itemId) {
-    return null;
+    return webClient.post().uri("/{gameId}/shop/buy/{itemId}", gameId, itemId).retrieve()
+        .bodyToMono(Game.class).block();
   }
 }
