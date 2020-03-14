@@ -69,4 +69,10 @@ public class Ad {
     this.encrypted = encrypted;
   }
 
+  @Override
+  public String toString() {
+    return "Ad [adId=" + adId + ", message=" + message + ", reward=" + reward + ", experisIn="
+        + experisIn + ", probability=" + probability + ", encrypted=" + encrypted + "]";
+  }
+
 }

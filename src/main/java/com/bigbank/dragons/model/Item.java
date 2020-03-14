@@ -42,4 +42,9 @@ public class Item {
     this.game = game;
   }
 
+  @Override
+  public String toString() {
+    return "Item [id=" + id + ", name=" + name + ", cost=" + cost + "]";
+  }
+
 }

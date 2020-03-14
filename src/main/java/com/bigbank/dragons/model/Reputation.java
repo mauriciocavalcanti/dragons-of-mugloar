@@ -42,4 +42,9 @@ public class Reputation {
     this.game = game;
   }
 
+  @Override
+  public String toString() {
+    return "Reputation [people=" + people + ", state=" + state + ", underworld=" + underworld + "]";
+  }
+
 }

@@ -64,14 +64,14 @@ class DragonsApplicationTests {
     assertTrue(game.getSuccess().equals(new Boolean(true))
         || game.getSuccess().equals(new Boolean(false)));
   }
-  
+
   @Test
   public void getShopSuccess() {
     List<Item> items = dragonsClient.getShop(this.game.getGameId());
     assertFalse(items.isEmpty());
     assertNotNull(items.get(0).getId());
   }
-  
+
   @Test
   public void buyItemSuccess() {
     List<Item> items = dragonsClient.getShop(this.game.getGameId());

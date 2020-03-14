@@ -124,4 +124,12 @@ public class Game {
     this.ads = ads;
   }
 
+  @Override
+  public String toString() {
+    return "Game [gameId=" + gameId + ", lives=" + lives + ", gold=" + gold + ", level=" + level
+        + ", score=" + score + ", highScore=" + highScore + ", turn=" + turn + ", message="
+        + message + ", success=" + success + ", shoppingSuccess=" + shoppingSuccess
+        + ", reputation=" + reputation + "]";
+  }
+
 }
