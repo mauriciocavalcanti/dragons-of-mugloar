@@ -1,8 +1,11 @@
 package com.bigbank.dragons.model;
 
+import com.bigbank.dragons.config.AdDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(using = AdDeserializer.class)
 public class Ad {
 
   private String adId;
@@ -12,6 +15,20 @@ public class Ad {
   private String probability;
   private Integer encrypted;
   private Game game;
+
+  public Ad() {}
+  
+  public Ad(String adId, String message, Integer reward, Integer expiresIn, String probability,
+      Integer encrypted, Game game) {
+    super();
+    this.adId = adId;
+    this.message = message;
+    this.reward = reward;
+    this.expiresIn = expiresIn;
+    this.probability = probability;
+    this.encrypted = encrypted;
+    this.game = game;
+  }
 
   public String getAdId() {
     return adId;
