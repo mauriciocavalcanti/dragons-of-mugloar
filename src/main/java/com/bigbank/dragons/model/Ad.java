@@ -8,7 +8,7 @@ public class Ad {
   private String adId;
   private String message;
   private Integer reward;
-  private Integer experisIn;
+  private Integer expiresIn;
   private String probability;
   private Integer encrypted;
   private Game game;
@@ -37,12 +37,12 @@ public class Ad {
     this.reward = reward;
   }
 
-  public Integer getExperisIn() {
-    return experisIn;
+  public Integer getExpiresIn() {
+    return expiresIn;
   }
 
-  public void setExperisIn(Integer experisIn) {
-    this.experisIn = experisIn;
+  public void setExpiresIn(Integer expiresIn) {
+    this.expiresIn = expiresIn;
   }
 
   public String getProbability() {
@@ -72,7 +72,7 @@ public class Ad {
   @Override
   public String toString() {
     return "Ad [adId=" + adId + ", message=" + message + ", reward=" + reward + ", experisIn="
-        + experisIn + ", probability=" + probability + ", encrypted=" + encrypted + "]";
+        + expiresIn + ", probability=" + probability + ", encrypted=" + encrypted + "]";
   }
 
 }
