@@ -89,7 +89,7 @@ public class Ad {
   @Override
   public String toString() {
     return "Ad [adId=" + adId + ", message=" + message + ", reward=" + reward + ", experisIn="
-        + expiresIn + ", probability=" + probability.getDescription() + ", encrypted=" + encrypted + "]";
+        + expiresIn + ", probability=" + probability + ", encrypted=" + encrypted + "]";
   }
 
 }
