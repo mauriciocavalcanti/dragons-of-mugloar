@@ -12,13 +12,13 @@ public class Ad {
   private String message;
   private Integer reward;
   private Integer expiresIn;
-  private String probability;
+  private Probability probability;
   private Integer encrypted;
   private Game game;
 
   public Ad() {}
   
-  public Ad(String adId, String message, Integer reward, Integer expiresIn, String probability,
+  public Ad(String adId, String message, Integer reward, Integer expiresIn, Probability probability,
       Integer encrypted, Game game) {
     super();
     this.adId = adId;
@@ -62,11 +62,11 @@ public class Ad {
     this.expiresIn = expiresIn;
   }
 
-  public String getProbability() {
+  public Probability getProbability() {
     return probability;
   }
 
-  public void setProbability(String probability) {
+  public void setProbability(Probability probability) {
     this.probability = probability;
   }
 
@@ -89,7 +89,7 @@ public class Ad {
   @Override
   public String toString() {
     return "Ad [adId=" + adId + ", message=" + message + ", reward=" + reward + ", experisIn="
-        + expiresIn + ", probability=" + probability + ", encrypted=" + encrypted + "]";
+        + expiresIn + ", probability=" + probability.getDescription() + ", encrypted=" + encrypted + "]";
   }
 
 }

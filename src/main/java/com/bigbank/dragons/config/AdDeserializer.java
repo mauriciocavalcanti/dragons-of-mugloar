@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.apache.tomcat.util.codec.binary.Base64;
 import com.bigbank.dragons.model.Ad;
 import com.bigbank.dragons.model.Game;
+import com.bigbank.dragons.model.Probability;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -33,7 +34,7 @@ public class AdDeserializer extends JsonDeserializer<Ad> {
     final Integer reward = node.get("reward").asInt();
     final Integer expiresIn = node.get("expiresIn").asInt();
 
-    return new Ad(adId, message, reward, expiresIn, probability, encrypted, new Game());
+    return new Ad(adId, message, reward, expiresIn, Probability.getByDescription(probability), encrypted, new Game());
   }
 
 }
