@@ -1,17 +1,19 @@
 package com.bigbank.dragons.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-@ConfigurationProperties("client.dragons")
 public class DragonsConfig {
+  
+  @Value("${client.dragons.base-url}")
+  private String baseUrl;
   
   @Bean
   public WebClient webClient(WebClient.Builder webClientBuilder) {
-    return webClientBuilder.baseUrl("https://dragonsofmugloar.com/api/v2").build();
+    return webClientBuilder.baseUrl(this.baseUrl).build();
   }
 
 }
