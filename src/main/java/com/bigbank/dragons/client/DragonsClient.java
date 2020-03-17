@@ -23,14 +23,14 @@ public class DragonsClient {
 
   public Game startGame() {
     Game game = webClient.post().uri("/game/start").retrieve().bodyToMono(Game.class).block();
-    LOGGER.info("Game started: {}", game);
+    LOGGER.debug("Game started: {}", game);
     return game;
   }
 
   public Reputation investigateReputation(String gameId) {
     Reputation reputation = webClient.post().uri("/{gameId}/investigate/reputation", gameId)
         .retrieve().bodyToMono(Reputation.class).block();
-    LOGGER.info("Reputation: {}", reputation);
+    LOGGER.debug("Reputation: {}", reputation);
     return reputation;
   }
 
@@ -38,7 +38,7 @@ public class DragonsClient {
     List<Ad> ads = webClient.get().uri("/{gameId}/messages", gameId).retrieve().bodyToFlux(Ad.class)
         .collectList().block();
     for (Ad ad : ads) {
-      LOGGER.info("Ad: {}", ad);
+      LOGGER.debug("Ad: {}", ad);
     }
     return ads;
   }
@@ -46,7 +46,7 @@ public class DragonsClient {
   public Game solveMessage(String gameId, String adId) {
     Game game = webClient.post().uri("/{gameId}/solve/{adId}", gameId, adId).retrieve()
         .bodyToMono(Game.class).block();
-    LOGGER.info("Solve message result: {}", game);
+    LOGGER.debug("Solve message result: {}", game);
     return game;
   }
 
@@ -54,7 +54,7 @@ public class DragonsClient {
     List<Item> items = webClient.get().uri("/{gameId}/shop", gameId).retrieve()
         .bodyToFlux(Item.class).collectList().block();
     for (Item item : items) {
-      LOGGER.info("Item: {}", item);
+      LOGGER.debug("Item: {}", item);
     }
     return items;
   }
@@ -62,7 +62,7 @@ public class DragonsClient {
   public Game buyItem(String gameId, String itemId) {
     Game game = webClient.post().uri("/{gameId}/shop/buy/{itemId}", gameId, itemId).retrieve()
         .bodyToMono(Game.class).block();
-    LOGGER.info("Shopping result: {}", game);
+    LOGGER.debug("Shopping result: {}", game);
     return game;
   }
 }
