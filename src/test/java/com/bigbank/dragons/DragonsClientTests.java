@@ -46,9 +46,9 @@ class DragonsClientTests {
   public void investigationSuccess() {
     Reputation reputation = dragonsClient.investigateReputation(this.game.getGameId());
     assertNotNull(reputation);
-    assertTrue(
-        reputation.getPeople().equals(new Float(0)) && reputation.getState().equals(new Float(0))
-            && reputation.getUnderworld().equals(new Float(0)));
+    assertTrue(reputation.getPeople().equals(Float.valueOf(0))
+        && reputation.getState().equals(Float.valueOf(0))
+        && reputation.getUnderworld().equals(Float.valueOf(0)));
   }
 
   @Test
@@ -63,8 +63,8 @@ class DragonsClientTests {
     List<Ad> ads = dragonsClient.getMessages(this.game.getGameId());
     Game game = dragonsClient.solveMessage(this.game.getGameId(), ads.get(0).getAdId());
     assertNotNull(game);
-    assertTrue(game.getSuccess().equals(new Boolean(true))
-        || game.getSuccess().equals(new Boolean(false)));
+    assertTrue(game.getSuccess().equals(Boolean.TRUE)
+        || game.getSuccess().equals(Boolean.FALSE));
   }
 
   @Test
@@ -79,6 +79,6 @@ class DragonsClientTests {
     List<Item> items = dragonsClient.getShop(this.game.getGameId());
     Game game = dragonsClient.buyItem(this.game.getGameId(), items.get(0).getId());
     assertNotNull(game);
-    assertTrue(game.getShoppingSuccess().equals(new Boolean(false)));
+    assertTrue(game.getShoppingSuccess().equals(Boolean.FALSE));
   }
 }

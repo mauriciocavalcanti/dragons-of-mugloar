@@ -42,34 +42,34 @@ class DragonsControllerTests {
 
     ads.add(new Ad("QVLW6CNz",
         "Create an advertisement campaign for Vaska Winston to promote their dog based business",
-        new Integer(29), new Integer(7), Probability.RATHER_DETRIMENTAL, null, null));
+        Integer.valueOf(29), Integer.valueOf(7), Probability.RATHER_DETRIMENTAL, null, null));
     ads.add(new Ad("5WhQCnxw",
         "Create an advertisement campaign for Fereshteh Thrussell to promote their dog based business",
-        new Integer(25), new Integer(7), Probability.SURE_THING, null, null));
+        Integer.valueOf(25), Integer.valueOf(7), Probability.SURE_THING, null, null));
     ads.add(new Ad("94jGzvrL",
         "Create an advertisement campaign for Alister Lauderman to promote their chariot based business",
-        new Integer(19), new Integer(7), Probability.QUITE_LIKELY, null, null));
+        Integer.valueOf(19), Integer.valueOf(7), Probability.QUITE_LIKELY, null, null));
     ads.add(new Ad("O9o2cDO8",
         "Help Ayodele Willoughby to transport a magic chariot to village in Greymere",
-        new Integer(18), new Integer(7), Probability.WALK_IN_THE_PARK, null, null));
+        Integer.valueOf(18), Integer.valueOf(7), Probability.WALK_IN_THE_PARK, null, null));
     ads.add(
         new Ad("N6108xu2", "Help Yaromil Edwards to sell an unordinary wagon on the local market",
-            new Integer(30), new Integer(7), Probability.GAMBLE, null, null));
+            Integer.valueOf(30), Integer.valueOf(7), Probability.GAMBLE, null, null));
     ads.add(new Ad("Bdjx529C",
         "Escort Sakiko Williams to village in Doveham where they can meet with their long lost potatoes",
-        new Integer(56), new Integer(7), Probability.QUITE_LIKELY, null, null));
+        Integer.valueOf(56), Integer.valueOf(7), Probability.QUITE_LIKELY, null, null));
     ads.add(new Ad("vd6gzszw",
         "Steal chicken delivery to Juho Masters and share some of the profits with the people.",
-        new Integer(56), new Integer(7), Probability.SURE_THING, null, null));
+        Integer.valueOf(56), Integer.valueOf(7), Probability.SURE_THING, null, null));
     ads.add(
         new Ad("Nw35omSM", "Help Carter Sempers to transport a magic pan to savannah in Metalham",
-            new Integer(9), new Integer(7), Probability.SURE_THING, null, null));
+            Integer.valueOf(9), Integer.valueOf(7), Probability.SURE_THING, null, null));
     ads.add(new Ad("cXJlYzfj",
         "Escort Karita Trollope to savannah in Westdrone where they can meet with their long lost chicken",
-        new Integer(77), new Integer(7), Probability.SUICIDE_MISSION, null, null));
+        Integer.valueOf(77), Integer.valueOf(7), Probability.SUICIDE_MISSION, null, null));
     ads.add(new Ad("rAumEYNr",
         "Steal water delivery to Kattalin Derricks and share some of the profits with the people.",
-        new Integer(57), new Integer(7), Probability.SURE_THING, null, null));
+        Integer.valueOf(57), Integer.valueOf(7), Probability.SURE_THING, null, null));
     this.initialized = true;
   }
 
@@ -92,8 +92,8 @@ class DragonsControllerTests {
     List<Ad> ads = gameController.findAds(this.game);
     Game game = gameController.solveAd(this.game, ads.get(0));
     assertNotNull(game);
-    assertTrue(game.getSuccess().equals(new Boolean(true))
-        || game.getSuccess().equals(new Boolean(false)));
+    assertTrue(game.getSuccess().equals(Boolean.TRUE)
+        || game.getSuccess().equals(Boolean.FALSE));
   }
 
   @Test
