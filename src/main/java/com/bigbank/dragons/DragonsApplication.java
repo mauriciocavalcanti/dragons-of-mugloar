@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 import com.bigbank.dragons.controller.AdController;
 import com.bigbank.dragons.controller.GameController;
 import com.bigbank.dragons.model.Ad;
 import com.bigbank.dragons.model.Game;
 
 @SpringBootApplication
-public class DragonsApplication implements CommandLineRunner {
+public class DragonsApplication {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(DragonsApplication.class);
 
@@ -21,24 +23,30 @@ public class DragonsApplication implements CommandLineRunner {
     SpringApplication.run(DragonsApplication.class, args);
   }
 
-  @Autowired
-  private GameController gameController;
-  
-  @Autowired
-  private AdController adController;
-  
-  @Override
-  public void run(String... args) throws Exception {
-    Game game = gameController.startGame();
-    while (game.getLives() > 0) {
-      List<Ad> ads = gameController.findAds(game);
-      game.setAds(ads);
-      Ad adToSolve = adController.findBestAd(ads);
-      game = gameController.solveAd(game, adToSolve);
-      game = gameController.goShopping(game);
-      LOGGER.info("End turn, game stats: {}", game);
+  @Profile("!test")
+  @Component
+  public class GameRunner implements CommandLineRunner {
+
+    @Autowired
+    private GameController gameController;
+
+    @Autowired
+    private AdController adController;
+
+    @Override
+    public void run(String... args) throws Exception {
+      Game game = gameController.startGame();
+      while (game.getLives() > 0) {
+        List<Ad> ads = gameController.findAds(game);
+        game.setAds(ads);
+        Ad adToSolve = adController.findBestAd(ads);
+        game = gameController.solveAd(game, adToSolve);
+        game = gameController.goShopping(game);
+        LOGGER.info("End turn, game stats: {}", game);
+      }
+      LOGGER.info("Final stats: {}", game);
     }
-    LOGGER.info("Final stats: {}", game);
   }
+
 
 }
