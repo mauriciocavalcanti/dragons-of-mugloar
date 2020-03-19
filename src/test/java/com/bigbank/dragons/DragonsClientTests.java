@@ -17,7 +17,7 @@ import com.bigbank.dragons.model.Reputation;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class DragonsApplicationTests {
+class DragonsClientTests {
 
   @Autowired
   private DragonsClient dragonsClient;

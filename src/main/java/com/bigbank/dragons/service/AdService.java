@@ -19,7 +19,7 @@ public class AdService {
     List<Ad> adsWithoutStealing = this.removeAdsAboutStealing(ads);
     Probability bestProbability = this.getBestProbability(adsWithoutStealing);
     LOGGER.debug("Best ads probability: {}", bestProbability.getDescription());
-    List<Ad> bestProbabilityAds = this.getAdsByProbability(ads, bestProbability);
+    List<Ad> bestProbabilityAds = this.getAdsByProbability(adsWithoutStealing, bestProbability);
     Ad ad = this.getHighestRewardAd(bestProbabilityAds);
     LOGGER.debug("Best ad: {}", ad);
     return ad;

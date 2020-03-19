@@ -41,7 +41,7 @@ public class GameService {
   }
 
   public Game goShopping(Game game) {
-    if (game.getAds().isEmpty()) {
+    if (game.getAds() == null || game.getAds().isEmpty()) {
       throw new IllegalArgumentException("Game must have a list of ads");
     }
     if (game.getLives() == 0) {
