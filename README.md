@@ -1,6 +1,6 @@
 # Dragons of Mugloar
 
-Auto playing client for the game API.\
+Auto playing client for the [game API](https://dragonsofmugloar.com/).\
 Client can reliably get past 1000 points and is able to play indefinetly without ever losing with some frequency.
  
 
