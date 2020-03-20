@@ -8,6 +8,7 @@ Client can reliably get past 1000 points and is able to play indefinetly without
 
 Make sure to have JDK 1.8 installed.\
 Also, make sure to have maven CLI working. You can check [this guide](https://www.baeldung.com/install-maven-on-windows-linux-mac) for a quick setup.\
+Or go to [gitpod](https://gitpod.io/#https://github.com/mauriciocavalcanti/dragons-of-mugloar) instead of running locally.\
 On project root directory, run:
 ```
 $ mvn clean install
